@@ -57,24 +57,15 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="about-img">
-						<img src="<?php echo get_template_directory_uri();?>/assets/img/me.jpg" alt="" />
+						<img src="<?php echo esc_url(get_theme_mod('about_img')); ?>" alt="" />
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="about-desc">
-						<h3>xenon doe</h3>
-						<h4>professional web developer</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-						<ul>
-							<li><i class="fa fa-angle-double-right"></i> bootstrap development</li>
-							<li><i class="fa fa-angle-double-right"></i> email marketing</li>
-						</ul>
-						<ul>
-							<li><i class="fa fa-angle-double-right"></i> logo designing</li>
-							<li><i class="fa fa-angle-double-right"></i> software management</li>
-						</ul>
-						<a href="" class="box-btn">hire me</a>
+						<h3><?php echo get_theme_mod('about_heading');?></h3>
+						<h4><?php echo get_theme_mod('about_subheading');?></h4>
+						<?php echo get_theme_mod('about_desc');?>
+						<a href="<?php echo esc_url(get_theme_mod('about_btn_link'));?>" class="box-btn"><?php echo get_theme_mod('about_btn_text');?></a>
 					</div>
 				</div>
 			</div>
@@ -88,54 +79,29 @@
 			<div class="row">
 				<div class="col-xl-8 mx-auto text-center">
 					<div class="section-title">
-						<h4>what i do</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+						<h4><?php echo get_theme_mod('services_section_title');?></h4>
+						<p><?php echo get_theme_mod('services_section_desc');?></p>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<i class="fa fa-dribbble"></i>
-						<h4>design</h4>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi. </p>
+			<div class="row">	
+				
+				<?php $services = get_theme_mod('services_box'); ?>
+
+				<?php
+					foreach($services as $service) {
+				?>
+						<div class="col-lg-4">
+						<div class="single-service">
+							<i class="<?php echo $service['service_icon'];?>"></i>
+							<h4><?php echo $service['service_title'];?></h4>
+							<p><?php echo $service['service_desc'];?></p>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<i class="fa fa-code"></i>
-						<h4>development</h4>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi. </p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<i class="fa fa-clone"></i>
-						<h4>branding</h4>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi. </p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<i class="fa fa-rocket"></i>
-						<h4>database</h4>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi. </p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<i class="fa fa-camera"></i>
-						<h4>app</h4>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi. </p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-service">
-						<i class="fa fa-clock-o"></i>
-						<h4>support</h4>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi. </p>
-					</div>
-				</div>
+				<?php
+					}
+				?>
+				
 			</div>
 		</div>
 	  </section>

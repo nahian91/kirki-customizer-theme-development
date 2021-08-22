@@ -96,69 +96,122 @@ Kirki::add_field('xenon_config', array(
     'section' => 'banner_section',
 ));
 
-// function xenon_customizer($wp_customize) {
+/* About Section */
+Kirki::add_section('about_section', array(
+    'title' => __('About Settings', 'xenon'),
+    'panel' => 'xenon_panel'
+));
 
-//     $wp_customize -> add_section('banner_section', array(
-//         'title' => __('Banner Settings', 'text-domain'),
-//         'priority' => 210
-//     ));
-    
-//     $wp_customize -> add_setting('banner_heading', array(
-//         'default' => __('My Name is John Wick', 'text-domain'),
-//         'transport' => 'postMessage' // postMessage        
-//     ));
+/* About Image Settings */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add About Image', 'xenon'),
+    'type' => 'image',
+    'settings' => 'about_img',
+    'section' => 'about_section',
+));
 
-//     $wp_customize -> add_control('banner_heading_ctrl', array(
-//         'label' => __('Add Banner Heading', 'text-domain'),
-//         'type' => 'text',
-//         'settings' => 'banner_heading',
-//         'section' => 'banner_section'
-//     ));
+/* About Heading Settings */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add About Heading', 'xenon'),
+    'type' => 'text',
+    'settings' => 'about_heading',
+    'section' => 'about_section',
+    'default' => __('Xenon Doe', 'xenon')
+));
 
-//     $wp_customize -> add_setting('banner_heading_color', array(
-//         'default' => '#fff',
-//         'transport' => 'postMessage'
-//     ));
+/* About Subheading Settings */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add About Subheading', 'xenon'),
+    'type' => 'text',
+    'settings' => 'about_subheading',
+    'section' => 'about_section',
+    'default' => __('professional web developer', 'xenon')
+));
 
-//     $wp_customize -> add_control(new WP_Customize_Color_Control($wp_customize, 'banner_heading_color_ctrl', array(
-//         'label' =>  __('Add Banner Heading Color', 'text-domain'),
-//         'settings' => 'banner_heading_color',
-//         'section' => 'banner_section'
-//     )));
+/* About Description Settings */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add About Description', 'xenon'),
+    'type' => 'editor',
+    'settings' => 'about_desc',
+    'section' => 'about_section',
+    'default' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,', 'xenon')
+));
 
-//     $wp_customize -> add_setting('banner_desc', array(
-//         'default' => __('developer - freelancer - photographer', 'text-domain'),
-//         'transport' => 'postMessage'
-//     ));
+/* About Button URL Settings */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add About Button Link', 'xenon'),
+    'type' => 'link',
+    'settings' => 'about_btn_link',
+    'section' => 'about_section',
+    'default' => 'https://www.facebook.com'
+));
 
-//     $wp_customize -> add_control('banner_desc_ctrl', array(
-//         'label' => __('Add Banner Description', 'text-domain'),
-//         'type' => 'textarea',
-//         'settings' => 'banner_desc' ,
-//         'section' => 'banner_section'
-//     ));
+/* About Button Text Settings */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add About Button Text', 'xenon'),
+    'type' => 'text',
+    'settings' => 'about_btn_text',
+    'section' => 'about_section',
+    'default' => __('Hire Me', 'xenon')
+));
 
-//     $wp_customize -> add_setting('banner_btn_text', array(
-//         'default' => __('Contact Us', 'text-domain')
-//     ));
+/* Services Section */
+Kirki::add_section('services_section', array(
+    'title' => __('Services Settings', 'xenon'),
+    'panel' => 'xenon_panel'
+));
 
-//     $wp_customize -> add_control('banner_btn_text_ctrl', array(
-//         'label' => __('Add Banner Button Text', 'text-domain'),
-//         'type' => 'text',
-//         'settings' => 'banner_btn_text' ,
-//         'section' => 'banner_section'
-//     ));
+/* Services Section Title */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add Services Section Title', 'xenon'),
+    'type' => 'text',
+    'settings' => 'services_section_title',
+    'section' => 'services_section',
+    'default' => __('Our Services', 'xenon')
+));
 
-//     $wp_customize -> add_setting('banner_btn_link', array(
-//         'default' => __('https://www.google.com', 'text-domain')
-//     ));
+/* Services Section Description */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Add Services Section Description', 'xenon'),
+    'type' => 'textarea',
+    'settings' => 'services_section_desc',
+    'section' => 'services_section',
+    'default' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit', 'xenon')
+));
 
-//     $wp_customize -> add_control('banner_btn_link_ctrl', array(
-//         'label' => __('Add Banner Button Link', 'text-domain'),
-//         'type' => 'url',
-//         'settings' => 'banner_btn_link' ,
-//         'section' => 'banner_section'
-//     ));
-
-// }
-// add_action('customize_register', 'xenon_customizer');
+/* Services Single Box Repeat */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Services Control', 'xenon'),
+    'type' => 'repeater',
+    'settings' => 'services_box',
+    'section' => 'services_section',
+    'row_label' => array(
+        'type' => 'text',
+        'value' => __('Add New Service', 'xenone'),
+        'field' => 'service_icon',
+    ),
+    'fields' => array(
+        'service_icon' => array(
+            'type' => 'select',
+            'label' => __('Add Service Icon', 'xenon'),
+            'placeholder' => esc_html__( 'Select an icon...', 'xenon' ),
+            'choices' => array(
+                'fa fa-dribbble' => __('Dribble', 'xenon'),
+                'fa fa-code' => __('Code', 'xenon'),
+                'fa fa-clone' => __('Clone', 'xenon'),
+                'fa fa-rocket' => __('Rocket', 'xenon'),
+                'fa fa-camera' => __('Camera', 'xenon'),
+                'fa fa-clock-o' => __('Clock', 'xenon'),
+            )
+        ),
+        'service_title' => array(
+            'type' => 'text',
+            'label' => __('Add Service Title', 'xenon')
+        ),
+        'service_desc' => array(
+            'type' => 'textarea',
+            'label' => __('Add Service Description', 'xenon')
+        )
+    ),
+    'button_label' => __('Add New Service', 'xenon')
+));
