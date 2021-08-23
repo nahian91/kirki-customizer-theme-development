@@ -21,7 +21,15 @@ Kirki::add_field('xenon_config', array(
     'type' => 'text',
     'settings' => 'banner_heading',
     'section' => 'banner_section', 
-    'default' => __('My Name is Xenon Doe')
+    'default' => __('My Name is Xenon Doe'),
+    'transport' => 'postMessage',
+    'js_vars'   => array(
+        array(
+            'element'  => '.welcome-content h4',
+			'function' => 'html',
+			// 'property' => 'function',
+        )
+    )
 ));
 
 Kirki::add_field('xenon_config', array(
@@ -163,11 +171,27 @@ Kirki::add_section('services_section', array(
 
 /* Services Section Title */
 Kirki::add_field('xenon_config', array(
+    'label' => __('Show Services?', 'xenon'),
+    'type' => 'checkbox',
+    'settings' => 'services_section_hide',
+    'section' => 'services_section',
+    'default' => true
+));
+
+/* Services Section Title */
+Kirki::add_field('xenon_config', array(
     'label' => __('Add Services Section Title', 'xenon'),
     'type' => 'text',
     'settings' => 'services_section_title',
     'section' => 'services_section',
-    'default' => __('Our Services', 'xenon')
+    'default' => __('Our Services', 'xenon'),
+    'transport' => 'postMessage',
+    'js_vars' => array(
+        array(
+            'element' => '.section-title h4',
+            'function' => 'html'
+        )
+    )
 ));
 
 /* Services Section Description */
@@ -176,7 +200,14 @@ Kirki::add_field('xenon_config', array(
     'type' => 'textarea',
     'settings' => 'services_section_desc',
     'section' => 'services_section',
-    'default' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit', 'xenon')
+    'default' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit', 'xenon'),
+    'transport' => 'postMessage',
+    'js_vars' => array(
+        array(
+            'element' => '.section-title p',
+            'function' => 'html'
+        )
+    )
 ));
 
 /* Services Single Box Repeat */
@@ -214,4 +245,18 @@ Kirki::add_field('xenon_config', array(
         )
     ),
     'button_label' => __('Add New Service', 'xenon')
+));
+
+/* Services Per Column Select */
+Kirki::add_field('xenon_config', array(
+    'label' => __('Service Column', 'xenon'),
+    'type' => 'select',
+    'settings' => 'services_column',
+    'section' => 'services_section',
+    'default' => 'col-md-4',
+    'choices' => array(
+        'col-md-4' => __(' 3 Column', 'xenon'),
+        'col-md-3' => __(' 4 Column', 'xenon'),
+        'col-md-6' => __(' 2 Column', 'xenon'),
+    ),
 ));

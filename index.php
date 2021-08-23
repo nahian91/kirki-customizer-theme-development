@@ -72,7 +72,11 @@
 		</div>
 	  </section>
 	  <!-- About Area End -->
-      
+
+	  <?php
+		if(get_theme_mod('services_section_hide', true) == true) {
+	  ?>
+
 	  <!-- Services Area Start -->
 	  <section class="services-area pt-100 pb-70" id="services">
 		<div class="container">
@@ -91,7 +95,7 @@
 				<?php
 					foreach($services as $service) {
 				?>
-						<div class="col-lg-4">
+					<div class="<?php echo get_theme_mod('services_column');?> test">
 						<div class="single-service">
 							<i class="<?php echo $service['service_icon'];?>"></i>
 							<h4><?php echo $service['service_title'];?></h4>
@@ -106,8 +110,9 @@
 		</div>
 	  </section>
 	  <!-- Services Area End -->
-	  
-	   <!-- Projectss Area Start -->
+	  <?php } ?>
+
+	<!-- Projectss Area Start -->
       <section class="projects-area pb-100 pt-100" id="projects">
          <div class="container">
             <div class="row">
